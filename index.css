@@ -1,0 +1,51 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .countdown {
+      width: fit-content;
+      background-color: #070303;
+      color: #f2f2f2;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      box-shadow: 10px 8px 10px 5px aqua;
+      margin: 50px auto;
+  }
+
+  h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+  }
+
+  .timer {
+      font-size: 36px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+  }
+
+  span {
+      padding: 5px;
+  }
+  .sub-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #customDate{
+    padding: 5px;
+    border-radius: 6px;
+    background-color: aqua;
+    color:black;
+  }
+  #updateButton{
+    border-radius: 6px;
+    background-color: aqua;
+    color:black;
+  }
+  
