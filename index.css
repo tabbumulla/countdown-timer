@@ -34,8 +34,9 @@ body {
   }
   .sub-info{
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
+      
   }
   #customDate{
     padding: 5px;
