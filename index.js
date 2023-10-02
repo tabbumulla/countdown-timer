@@ -1,49 +1,72 @@
- // Set the initial countdownDate
- let countdownDate = new Date("September 24, 2023 23:59:59").getTime();
- let countdownInterval;
+let countdownDate = new Date().getTime();
+let countdownInterval;
 
- // Function to start or update the countdown timer
- function startCountdown() {
-     clearInterval(countdownInterval); // Clear any previous countdown intervals
+function setCountdown() {
+    clearInterval(countdownInterval);
 
-     // Read the user-entered date and time from the input field
-     const customDateInput = document.getElementById("customDate");
-     const customDateValue = customDateInput.value;
+    const customDateInput = document.getElementById("customDate");
+    const customTimeInput = document.getElementById("customTime");
 
-     // Parse the custom date input and calculate the time difference
-     const customDate = new Date(customDateValue).getTime();
-     const currentTime = new Date().getTime();
+    const customDateTime = customDateInput.value + " " + customTimeInput.value;
+    const customDate = new Date(customDateTime).getTime();
+    const currentTime = new Date().getTime();
 
-     if (customDate >= currentTime) {
-         countdownDate = customDate;
-         updateCountdown(); // Update the countdown immediately
-         countdownInterval = setInterval(updateCountdown, 1000); // Start the countdown
-     } else {
-         alert("Please enter a future date and time.");
-     }
- }
+    if (customDate >= currentTime) {
+        countdownDate = customDate;
+        updateCountdown();
+    } else {
+        alert("Please enter a future date and time.");
+    }
+}
 
- // Function to update the countdown
- function updateCountdown() {
-     const currentDate = new Date().getTime();
-     const timeLeft = countdownDate - currentDate;
+function startCountdown() {
+    clearInterval(countdownInterval);
 
-     if (timeLeft <= 0) {
-         clearInterval(countdownInterval);
-         document.querySelector(".timer").innerHTML = "Countdown Expired!";
-     } else {
-         const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-         const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-         const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-         const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+    const customDateInput = document.getElementById("customDate");
+    const customTimeInput = document.getElementById("customTime");
 
-         document.getElementById("days").textContent = days.toString().padStart(2, '0');
-         document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-         document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-         document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-     }
- }
+    const customDateTime = customDateInput.value + " " + customTimeInput.value;
+    const customDate = new Date(customDateTime).getTime();
+    const currentTime = new Date().getTime();
 
- // Add an event listener to the button to start/update the countdown
- const updateButton = document.getElementById("updateButton");
- updateButton.addEventListener("click", startCountdown);
+    if (customDate >= currentTime) {
+        countdownDate = customDate;
+        updateCountdown();
+        countdownInterval = setInterval(updateCountdown, 1000);
+    } else {
+        alert("Please enter a future date and time.");
+    }
+}
+
+function stopCountdown() {
+    clearInterval(countdownInterval);
+}
+
+const setCountdownButton = document.getElementById("setCountdownButton");
+setCountdownButton.addEventListener("click", setCountdown);
+
+const startButton = document.getElementById("startButton");
+startButton.addEventListener("click", startCountdown);
+
+const stopButton = document.getElementById("stopButton");
+stopButton.addEventListener("click", stopCountdown);
+
+function updateCountdown() {
+    const currentDate = new Date().getTime();
+    const timeLeft = countdownDate - currentDate;
+
+    if (timeLeft <= 0) {
+        clearInterval(countdownInterval);
+        document.querySelector(".timer").innerHTML = "Countdown Expired!";
+    } else {
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days.toString().padStart(2, '0');
+        document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+    }
+}
