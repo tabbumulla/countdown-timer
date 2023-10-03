@@ -1,32 +1,44 @@
-body {
+ *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ body {
     font-family: Arial, sans-serif;
     background-color: black;
     text-align: center;
     margin: 0;
     padding: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
   }
 
   .countdown {
-      width: fit-content;
+      width: 80%;
       background-color: #070303;
       color: #f2f2f2;
       border-radius: 10px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
       padding: 20px;
       box-shadow: 10px 8px 10px 5px aqua;
-      margin: 50px auto;
+      margin: 50px;
   }
 
   h1 {
-      font-size: 24px;
+      font-size: 34px;
       margin-bottom: 20px;
+      
+
   }
 
   .timer {
       font-size: 36px;
       font-weight: bold;
       display: flex;
-      justify-content: center;
+      width: 100%;
+      justify-content: space-around;
+      padding: 20px;
   }
 
   span {
@@ -35,9 +47,48 @@ body {
   .sub-info{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-      
+    justify-content: space-around;
+    
   }
+  input[type="date"], input[type="time"]{
+    padding: 5px;
+    border-radius: 5px;
+    background-color: aqua;
+  }
+  button{
+    padding: 10px;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 5px 2px 5px 2px aqua;
+    margin-right: 30px;
+
+  }
+  .child-subinfo1{
+    padding: 10px;
+    margin-bottom: 15px;
+
+  }
+ .child-subinfo2{
+    margin-bottom: 15px;
+ }
+ .day-container{
+    border: 2px solid aqua;
+    width: fit-content;
+    padding: 20px;
+ }
+ .contain{
+    padding: 10px;
+ }
+ h2{
+    font-size: 30px;
+ 
+ }
+ h5{
+    font-size: 18px;
+    margin-bottom: 10px;
+ }
   #customDate{
     padding: 5px;
     border-radius: 6px;
@@ -49,4 +100,8 @@ body {
     background-color: aqua;
     color:black;
   }
-  
+  .contain2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
